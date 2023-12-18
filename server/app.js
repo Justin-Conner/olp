@@ -9,7 +9,7 @@ app.use(express.static('public'));
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);n
 });*/
 
 const express = require('express');
