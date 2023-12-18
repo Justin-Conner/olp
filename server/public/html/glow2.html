@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      .glow-circle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: transparent;
+      }
+      body {
+  background-color: black;
+}
+    </style>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> 
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="glow"></div>
+    
+
+    <script>
+      const glowContainer = document.getElementById('glow');
+      const colors = [
+        [255, 0, 0],
+        [0, 255, 0],
+        [0, 0, 255]
+      ];
+
+      class GlowCircle {
+        constructor(color) {
+          this.color = color;
+          this.radius = 20 + Math.random() * 30;
+          this.x = Math.random() * glowContainer.offsetWidth;
+          this.y = -this.radius;
+          this.speed = 1 + Math.random() * 2;
+          this.element = document.createElement('div');
+          this.element.classList.add('glow-circle');
+          this.element.style.backgroundColor = `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.8)`;
+          this.element.style.width = `${this.radius}px`;
+          this.element.style.height = `${this.radius}px`;
+          this.element.style.left = `${this.x}px`;
+          this.element.style.top = `${this.y}px`;
+          glowContainer.appendChild(this.element);
+        }
+
+        update() {
+          this.y += this.speed;
+          this.element.style.top = `${this.y}px`;
+          if (this.y - this.radius > glowContainer.offsetHeight) {
+            this.destroy();
+          }
+        }
+
+        destroy() {
+          this.element.remove();
+        }
+      }
+
+      function createGlowCircle() {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const glowCircle = new GlowCircle(color);
+        function animate() {
+          glowCircle.update();
+          requestAnimationFrame(animate);
+        }
+        animate();
+      }
+
+      setInterval(createGlowCircle, 30);
+    </script>
+  </body>
+</html>
