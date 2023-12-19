@@ -14,8 +14,8 @@
   <meta property="og:type" content="website">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> 
-    <link href="css\carousel.css" rel="stylesheet">
-    <link href="css\bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/carousel.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <style>
@@ -116,18 +116,19 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+<!--slide one -->
     <div class="carousel-inner">
       <div class="carousel-item active">
         <iframe src="html\glow2.html"  width="100%" height="430px"></iframe>
-<!--slide one -->
         <div class="container">
-          <div class="carousel-caption">
-            <div  class = "top"><p >Ohm Lotus Phoenix</p></div>
+          <div class="carousel-caption text-start">
+            <div  class = "top"><p >Ohm Lotus Phoenix</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <iframe src="F:\HOMEPC\Documents\My Web Sites\OLP_Website\olp\server\public\
+        <!--<iframe src="F:\HOMEPC\Documents\My Web Sites\OLP_Website\olp\server\public\-->
         <div class="container">
           <div class="carousel-caption">
             <p><a class="btn btn-lg btn-primary" href="html/consultation.html">How we do it</a></p>
@@ -144,9 +145,9 @@
             <p><a class="btn btn-lg btn-primary" href="html/consultation.html">Contact Us</a></p>
           </div>
         </div>
-        <!--slide three end -->
       </div>
     </div>
+<!--CAROSEL NAV BUTTONS-->
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="span-control" aria-hidden="true"></span>
       <span class="span-control"><img src="images/ArrowLeft.png" alt="Arrow Right" width="200px" height="200px"></span>
@@ -154,7 +155,6 @@
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
       <span class="span-control" aria-hidden="true"></span>
       <span class="span-control"><img src="images/ArrowRight.png" alt="Arrow Right" width="200px" height="200px"></span>
-
     </button>
   </div>
 
@@ -274,10 +274,9 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 
 
 </body>
