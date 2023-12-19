@@ -12,4 +12,10 @@
   body {
     background-color: white;
   }
-  
+  .top div{
+    font-family: Consolas, monospace; /* Use Consolas font or monospace font */
+    color: black; /* Set the text color to black */
+    position: absolute; /* Set the position to absolute */
+    z-index: 9999; /* Set a high z-index value to make it render on top */
+    font-size: 50px; 
+  }
