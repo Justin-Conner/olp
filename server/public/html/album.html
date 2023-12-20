@@ -199,135 +199,53 @@
 
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="serverinstall.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="server install">
-
-            <div class="card-body">
-              <p class="card-text">Server Installation</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="voipPhone.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="voip phones">
-            <div class="card-body">
-              <p class="card-text">VOIP PHONES</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="cat6Cable.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="voip phones">
-
-            <div class="card-body">
-              <p class="card-text">Network infrastructure</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="pointOfSale.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="point of sale">
-
-            <div class="card-body">
-              <p class="card-text">Point of sale</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="audit.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="audit">
-
-            <div class="card-body">
-              <p class="card-text">Network Audit</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="cameraInstall.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="camera Install">
-
-            <div class="card-body">
-              <p class="card-text">CCTV</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="webDev.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="website development">
-            <div class="card-body">
-              <p class="card-text">website development</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="electronicRecycling.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="electronic Recyling">
-            <div class="card-body">
-              <p class="card-text">Electronic Recycling</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="ProprietarySolutions.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="electronic Recyling">
-            <div class="card-body">
-              <p class="card-text">Proprietary Solutions</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="service-cards">
+        <!-- JavaScript will populate this area -->
       </div>
     </div>
   </div>
+  
+  <script>
+    // Array of services
+    const services = [
+      { name: 'Server Installation', image: 'serverinstall.jpg' },
+      { name: 'VOIP Phones', image: 'voipPhone.jpg' },
+      { name: 'Network Infrastructure', image: 'cat6Cable.jpg' },
+      { name: 'Point of Sale', image: 'pointOfSale.jpg' },
+      { name: 'Network Audit', image: 'audit.jpg' },
+      { name: 'CCTV', image: 'cameraInstall.jpg' },
+      { name: 'Website Development', image: 'webDev.jpg' },
+      { name: 'Electronic Recycling', image: 'electronicRecycling.jpg' },
+      { name: 'Proprietary Solutions', image: 'ProprietarySolutions.jpg' }
+    ];
+  
+    // Get the container element
+    const serviceContainer = document.getElementById('service-cards');
+  
+    // Iterate over services and create cards
+    services.forEach(service => {
+      // Create card HTML
+      const cardHTML = `
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="${service.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="${service.name}">
+            <div class="card-body">
+              <p class="card-text">${service.name}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+  
+      // Append card to the container
+      serviceContainer.innerHTML += cardHTML;
+    });
+  </script>
+  
 
 </main>
 
