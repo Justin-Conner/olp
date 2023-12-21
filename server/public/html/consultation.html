@@ -81,7 +81,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="/html/index.html">Home</a>
           </li>
 
           <li class="nav-item">
@@ -231,7 +231,57 @@
               <label for="state" class="form-label">State</label>
               <select class="form-select" id="state" required>
                 <option value="">Choose...</option>
-                <option>California</option>
+                <option>Alabama</option>
+<option>Alaska</option>
+<option>Arizona</option>
+<option>Arkansas</option>
+<option>California</option>
+<option>Colorado</option>
+<option>Connecticut</option>
+<option>Delaware</option>
+<option>Florida</option>
+<option>Georgia</option>
+<option>Hawaii</option>
+<option>Idaho</option>
+<option>Illinois</option>
+<option>Indiana</option>
+<option>Iowa</option>
+<option>Kansas</option>
+<option>Kentucky</option>
+<option>Louisiana</option>
+<option>Maine</option>
+<option>Maryland</option>
+<option>Massachusetts</option>
+<option>Michigan</option>
+<option>Minnesota</option>
+<option>Mississippi</option>
+<option>Missouri</option>
+<option>Montana</option>
+<option>Nebraska</option>
+<option>Nevada</option>
+<option>New Hampshire</option>
+<option>New Jersey</option>
+<option>New Mexico</option>
+<option>New York</option>
+<option>North Carolina</option>
+<option>North Dakota</option>
+<option>Ohio</option>
+<option>Oklahoma</option>
+<option>Oregon</option>
+<option>Pennsylvania</option>
+<option>Rhode Island</option>
+<option>South Carolina</option>
+<option>South Dakota</option>
+<option>Tennessee</option>
+<option>Texas</option>
+<option>Utah</option>
+<option>Vermont</option>
+<option>Virginia</option>
+<option>Washington</option>
+<option>West Virginia</option>
+<option>Wisconsin</option>
+<option>Wyoming</option>
+
               </select>
               <div class="invalid-feedback">
                 Please provide a valid state.
@@ -315,8 +365,9 @@
 
           <hr class="my-4">-->
 
-          <!--replaced with a placeholder  <button class="w-100 btn btn-primary btn-lg" type="submit">Talk to you soon!</button>-->
-          <a href="C:\Users\satir\OneDrive\Documents\bootstrap-5.2.3-examples\carousel\index1.html" class="w-100 btn btn-primary btn-lg">Talk to you soon!</a>
+          <!--replaced with a placeholder  -->
+          <button id="submitFormBtn" class="w-100 btn btn-primary btn-lg" href = "index.html"type="submit">Talk to you soon!</button>
+          <!--<a href="C:\Users\satir\OneDrive\Documents\bootstrap-5.2.3-examples\carousel\index1.html" class="w-100 btn btn-primary btn-lg">Talk to you soon!</a>-->
 
         </form>
       </div>
@@ -333,5 +384,56 @@
     <script src="bootstrap.bundle.min.js"></script>
 
       <script src="form-validation.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Add an event listener for the form submission
+          document.getElementById('submitFormBtn').addEventListener('click', function () {
+            // Call a function to handle the form submission
+            submitForm();
+          });
+        });
+    
+        // Function to handle form submission
+function submitForm() {
+  // Get form data
+  const formData = {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    username: document.getElementById('username').value,
+    email: document.getElementById('email').value,
+    address: document.getElementById('address').value,
+    address2: document.getElementById('address2').value,
+    country: document.getElementById('country').value,
+    state: document.getElementById('state').value,
+    zip: document.getElementById('zip').value
+  };
+
+  // You can log the form data to the console for testing
+  console.log('Form Data:', formData);
+
+  // You can now use an AJAX request to send the form data to your server or call the Node.js endpoint
+
+  // For example, using fetch API
+  fetch('/submit-form', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+
+      // Redirect to the home page after a successful form submission
+      window.location.href = 'index.html';
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      // Optionally, you can display an error message to the user
+    });
+}
+
+      </script>
   </body>
 </html>
