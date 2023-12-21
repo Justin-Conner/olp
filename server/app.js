@@ -65,6 +65,7 @@ function sendEmail(formData) {
       Business Name: ${formData.username}
       First Name: ${formData.firstName}
       Last Name: ${formData.lastName}
+      Phone: ${formData.phone}
       Email: ${formData.email}
       Address: ${formData.address}, ${formData.address2 ? formData.address2 + ',' : ''} ${formData.state} ${formData.zip}
     `
