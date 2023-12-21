@@ -1,9 +1,14 @@
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser'); // Add this line
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Use body-parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Set the path to the 'public' directory
 const publicPath = path.join(__dirname, 'public');
