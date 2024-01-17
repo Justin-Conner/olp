@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> 
+  <link type="text/css" href="css/carousel.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #connectTheDotsCanvas {
+      background-color: grey;
+    }
+
+    #wordCanvas, #paragraphCanvas {
+      border: 1px solid #ccc;
+      width: 1900px; /* Same width as the other canvases */
+      height: 300px; /* Same height as the other canvases */
+    }
+    .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+  </style>
+  <title>Color-Changing Dots</title>
+  <link href="carousel.css" rel="stylesheet">
+</head>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+
+          <!--<li class="nav-item">
+            <a class="nav-link"  >636-439-3121</a>
+          </li>
+          <li class="nav-item">-->
+
+            <a class="nav-link"  >JConner@ohmlotusphoenix.com</a>
+          </li>
+
+        </ul>
+        <!--<form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>-->
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+  <canvas id="wordCanvas" width="1900" height="300"></canvas>
+  <canvas id="connectTheDotsCanvas" width="1900" height="300"></canvas>
+  <canvas id="paragraphCanvas" width="1900" height="300"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dotCanvas = document.getElementById('connectTheDotsCanvas');
+      const dotCtx = dotCanvas.getContext('2d');
+      const wordCanvas = document.getElementById('wordCanvas');
+      const wordCtx = wordCanvas.getContext('2d');
+      const paragraphCanvas = document.getElementById('paragraphCanvas');
+      const paragraphCtx = paragraphCanvas.getContext('2d');
+
+      // Define circle coordinates
+      const circles = [
+        { x: 300, y: 150 },
+        { x: 650, y: 150 },
+        { x: 950, y: 150 },
+        { x: 1250, y: 150 },
+        { x: 1600, y: 150 },
+      ];
+
+      // Define words and paragraphs lists
+      const words = ['Understanding Needs:', 'Customized Solutions:', 'Reliability + Security:', 'Proactive Support + Monitoring:', 'Improvement + Innovation:'];
+      const paragraphs = [
+        'Understanding the specific needs and requirements, we engage in effective communication to gather detailed information about your business goals, challenges, and expectations.',
+        'With a clear understanding of your needs, we design and develop solutions to align with your objectives and provide value.',
+        'We emphasize reliability and security for your business. We implement robust cybersecurity measures to protect sensitive data and ensure the integrity of crucial systems.',
+        'By implementing monitoring tools and practices we Regularly monitor, identify and address potential issues before they escalate. A responsive support system that provides timely assistance.',
+        'We use industry trends & technologies, to meet evolving customer needs. Our regular assessments, enhance services  incorporate new technology & innovate to provide cutting-edge solutions.'
+      ];
+
+      let currentIteration = 0;
+
+      // Function to draw a colored circle
+      function drawColoredCircle(ctx, x, y, radius, color) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      // Function to update the colors
+      function updateColors() {
+        // Clear the dot canvas
+        dotCtx.clearRect(0, 0, dotCanvas.width, dotCanvas.height);
+
+        // Get the current circle, word, and paragraph based on the iteration
+        const currentCircle = circles[currentIteration];
+        const currentWord = words[currentIteration];
+        const currentParagraph = paragraphs[currentIteration];
+
+        // Loop through circles and update colors
+        circles.forEach((circle, index) => {
+          const isCurrent = index === currentIteration;
+          const color = isCurrent ? 'green' : 'blue';
+          drawColoredCircle(dotCtx, circle.x, circle.y, 80, color);
+        });
+
+        // Render the current word
+        wordCtx.clearRect(0, 0, wordCanvas.width, wordCanvas.height);
+        wordCtx.font = '30px Arial';
+        wordCtx.fillStyle = 'black';
+        wordCtx.textAlign = 'center';
+        wordCtx.fillText(currentWord, currentCircle.x, currentCircle.y);
+
+        // Render the current paragraph
+        paragraphCtx.clearRect(0, 0, paragraphCanvas.width, paragraphCanvas.height);
+        paragraphCtx.font = '20px Arial';
+        paragraphCtx.fillStyle = 'black';
+        paragraphCtx.textAlign = 'center';
+        paragraphCtx.fillText(currentParagraph, paragraphCanvas.width / 2, paragraphCanvas.height / 2);
+
+        // Move to the next iteration
+        currentIteration = (currentIteration + 1) % circles.length;
+      }
+
+      // Initial drawing
+      updateColors();
+
+      // Set interval for continuous loop with a 2-second delay
+      setInterval(updateColors, 4000);
+    });
+  </script>
+</body>
+</html>
