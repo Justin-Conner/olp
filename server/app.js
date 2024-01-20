@@ -52,7 +52,7 @@ function sendEmail(formData) {
     service: 'gmail',
     auth: {
       user: 'ohmlotusphoenix@gmail.com',  // Replace with your Gmail email address
-      pass: 'qppo avrp uulc kvdw'         // Replace with your Gmail password
+      pass: ''         // Replace with your Gmail password
     }
   });
 
