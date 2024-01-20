@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser'); // Add this line
+const bodyParser = require('body-parser'); 
+const config = require('./config'); 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Use body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,7 +33,7 @@ app.post('/submit-form', (req, res) => {
   // Send email
   sendEmail(formData)
     .then(() => {
-      res.redirect('/index.html');
+      res.redirect('/');
     })
     .catch(error => {
       console.error('Error sending email:', error);
@@ -51,8 +52,8 @@ function sendEmail(formData) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'ohmlotusphoenix@gmail.com',  // Replace with your Gmail email address
-      pass: 'qppo avrp uulc kvdw'         // Replace with your Gmail password
+      user: config.email.user,
+      pass: config.email.pass
     }
   });
 
